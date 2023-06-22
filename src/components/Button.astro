@@ -1,0 +1,25 @@
+---
+export interface Props {
+  text: string;
+  solid?: boolean;
+  outline?: boolean;
+  link?: string;
+}
+
+const { text, link = "/", solid = false, outline = false } = Astro.props;
+
+const primary = solid && "bg-primary text-white hover:bg-red-400 duration-200",
+  primaryOutline =
+    outline &&
+    "text-primary border border-primary hover:bg-primary hover:bg-opacity-10 duration-200";
+---
+
+<a
+  href={link}
+  class={`py-1 px-4 rounded-md flex text-center ${primary} ${primaryOutline} hover:scale-[1.02]`}
+>
+  <span class="me-1 flex">
+    <slot name="icon" />
+  </span>
+  {text}
+</a>

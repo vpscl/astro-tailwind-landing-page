@@ -1,0 +1,27 @@
+---
+export interface Props {
+  subheading?: string;
+  heading?: string;
+  paragraph?: string;
+}
+
+const {
+  subheading,
+  heading,
+  paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident enim impedit veritatis iusto similique, ducimus deserunt natus ea commodi eum. Iste ipsum mollitia rerum qui illo soluta voluptates quis, delectus exercitationem illum doloribus a doloremque reprehenderit obcaecati atque deleniti ducimus.",
+} = Astro.props;
+---
+
+<div class="mb-5 flex flex-col items-center md:items-start">
+  <p
+    class="flex items-center gap-2 text-xs text-zinc-500 text-center before:w-14 before:h-px before:bg-zinc-500 before:inline-block"
+  >
+    {subheading}
+  </p>
+  <h2 class="text-primary mt-1 text-2xl font-bold md:text-3xl lg:text-4xl">
+    {heading}
+  </h2>
+  <p class="text-sm mt-2 text-center text-zinc-700 md:text-left md:text-base">
+    {paragraph}
+  </p>
+</div>
